@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .container {
+    border: 1px solid black;
+    width: 400px;
+    height:600px;
+    margin: 20px auto;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+/* Product Image */
+.container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Product Name */
+.product-name {
+    font-size: 22px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Product Description */
+p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Price */
+h2 {
+    font-size: 20px;
+    color: #d9534f;
+}
+
+/* Quantity Adjuster */
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quantity {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-quantity {
+    cursor: pointer;
+    width:10px;
+    height: 30px;
+    transition: transform 0.2s;
+}
+
+.btn-quantity:hover {
+    transform: scale(1.1);
+}
+
+/* Button */
+.btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+   
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <img src="suit.jpg" alt="image">
+        <h1 class="product-name">Patiala Suits</h1>
+        <p>Women's Embroidered Kurta Pant Set with Dupatta
+            Limited time deal</p>
+        <h2>Price ₹400/-</h2>
+        <div class="img-container">
+        <img src="minus.png" class="btn-quantity"alt=""height=40px onclick="decrease()" id="minus">
+        <span class="quantity" id="quantitytext">1</span>
+        <img src="plus.png" class="btn-quantity"alt="" height=40px onclick="increase()" id="plus">
+    </div>
+        <button class="btn">Add to cart</button>
+    </div>
+    <script>
+        const quantitytext = document.getElementById("quantitytext");
+
+        function increase(){
+            let quantity = parseInt(quantitytext.innerText);
+            if(quantity <10){
+            quantitytext.innerText = ++quantity;
+            }
+            else{
+                alert("you can't add more quantity");
+            }
+        }
+        function decrease(){
+            let quantity = parseInt(quantitytext.innerText);
+          
+            
+            if(quantity >1){
+                quantitytext.innerText = --quantity;
+            }
+            else{
+                alert("you can't decrease the the quantity");
+            }
+        }
+    </script>
+</body>
+</html>
